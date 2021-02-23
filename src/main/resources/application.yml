@@ -1,0 +1,11 @@
+server:
+  port: 9999
+  servlet.context-path: /mq
+spring:
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: jDrPve8z6xvfLvQv
+    close-timeout: 15s
+
+
