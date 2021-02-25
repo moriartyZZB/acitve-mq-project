@@ -1,5 +1,6 @@
 package com.moriartyzzb.acitvemqproject.controller;
 
+import com.moriartyzzb.acitvemqproject.annotation.LogAnno;
 import com.moriartyzzb.acitvemqproject.operator.ActivemqOperator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
@@ -41,5 +42,13 @@ public class MqController {
         //业务逻辑,根据单号查询是否已经付款
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         System.out.println("当前订单【123456789】失效时间： "+df.format(new Date()));// new Date()为获取当前系统时间
+    }
+
+    @GetMapping("/aspect")
+    @LogAnno()
+    public String testAspect() {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println("测试aspect "+df.format(new Date()));// new Date()为获取当前系统时间
+        return "OK";
     }
 }

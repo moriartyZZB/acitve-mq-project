@@ -1,6 +1,7 @@
 server:
   port: 9999
   servlet.context-path: /mq
+  aop.auto: true
 spring:
   activemq:
     broker-url: tcp://127.0.0.1:61616
