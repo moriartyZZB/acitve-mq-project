@@ -2,6 +2,7 @@ package com.moriartyzzb.acitvemqproject.controller;
 
 import com.moriartyzzb.acitvemqproject.annotation.LogAnno;
 import com.moriartyzzb.acitvemqproject.operator.ActivemqOperator;
+import com.moriartyzzb.acitvemqproject.thread.MyThread;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,4 +52,17 @@ public class MqController {
         System.out.println("测试aspect "+df.format(new Date()));// new Date()为获取当前系统时间
         return "OK";
     }
+
+    @GetMapping("/redisLock")
+    public String redisLock() {
+        for (int i = 1; i < 16; i++) {
+            MyThread myThread = new MyThread();
+            myThread.setName2(i+"");
+            myThread.start();
+
+        }
+
+        return "OK";
+    }
+
 }

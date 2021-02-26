@@ -8,5 +8,10 @@ spring:
     user: admin
     password: jDrPve8z6xvfLvQv
     close-timeout: 15s
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+
 
 
